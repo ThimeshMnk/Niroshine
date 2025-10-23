@@ -1,11 +1,12 @@
 import { FadeIn } from '@/components/FadeIn';
+const basePath = '/Niroshine';
 
 const Hero = () => {
   return (
     <section 
       id="home" 
       className="relative h-screen flex items-center justify-center bg-cover bg-center bg-fixed" 
-      style={{ backgroundImage: "url('/Hero.jpg')" }}
+      style={{ backgroundImage:`url('${basePath}/Hero.jpg')` }}
     >
       {/* Vignette Shadow Overlay */}
       <div 
