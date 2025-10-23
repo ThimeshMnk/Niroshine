@@ -3,7 +3,7 @@ import { FadeIn } from '../FadeIn';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-niro-light-blue">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn direction="down" className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-800">Get In Touch</h2>
