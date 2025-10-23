@@ -5,7 +5,7 @@ import CountUp from 'react-countup';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FadeIn } from '../FadeIn';
-
+const basePath = '/Niroshine'; 
 const About = () => {
   const statRef = useRef(null);
   const isInView = useInView(statRef, { once: true, margin: "-200px" });
@@ -37,7 +37,7 @@ const About = () => {
           <div className="relative h-[400px] lg:h-[500px]">
             <FadeIn className="absolute top-0 right-0 h-4/5 w-4/5 rounded-lg">
               <Image
-                src="/about-main.jpg"
+                src={`${basePath}/about-main.jpg`}
                 alt="Professional cleaner wiping a glass shower door"
                 layout="fill"
                 objectFit="cover"
@@ -46,7 +46,7 @@ const About = () => {
             </FadeIn>
             <FadeIn delay={0.2} className="absolute bottom-0 left-0 h-2/5 w-1/2 rounded-lg">
               <Image
-                src="/about-secondary.jpg"
+                src={`${basePath}/about-secondary.jpg`}
                 alt="Professional cleaner wiping a toilet"
                 layout="fill"
                 objectFit="cover"

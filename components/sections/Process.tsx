@@ -1,19 +1,19 @@
 import Image from 'next/image';
 import { FadeIn } from '../FadeIn';
-
+const basePath = '/Niroshine';
 const processSteps = [
   {
-    image: "/process-1.svg", // Using your SVG assets
+     image: `${basePath}/process-1.svg`, // Using your SVG assets
     title: "Book Online Form",
     description: "Easily schedule your cleaning service through our simple and quick online form."
   },
   {
-    image: "/process-2.svg",
+     image: `${basePath}/process-2.jpeg`,
     title: "Get Expert Cleaner",
     description: "A professional, vetted, and friendly cleaner is dispatched to your location at the scheduled time."
   },
   {
-    image: "/process-3.svg",
+    image: `${basePath}/process-3.svg`,
     title: "Enjoy Cleaning",
     description: "Sit back, relax, and enjoy your sparkling clean and fresh home. It's that simple!"
   }

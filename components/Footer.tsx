@@ -2,6 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Facebook, Instagram, Twitter, Mail, MapPin, Phone } from 'lucide-react';
 
+const basePath = '/Niroshine'; 
+
+
 const quickLinks = [
   { href: '#about', label: 'About Us' },
   { href: '#services', label: 'Services' },
@@ -22,7 +25,7 @@ const Footer = () => {
           <div className="md:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/logo.jpeg"
+                src={`${basePath}/logo.jpeg`}
                 alt="Niroshine Logo"
                 width={150}
                 height={45}
