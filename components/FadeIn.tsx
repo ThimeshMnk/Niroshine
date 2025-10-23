@@ -1,4 +1,4 @@
-"use client"; // This is a client component because it uses hooks
+"use client"; 
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
