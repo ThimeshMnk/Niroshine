@@ -5,7 +5,7 @@ const Hero = () => {
     <section 
       id="home" 
       className="relative h-screen flex items-center justify-center bg-cover bg-center bg-fixed" 
-      style={{ backgroundImage: "url('/hero.jpg')" }}
+      style={{ backgroundImage: "url('/Hero.jpg')" }}
     >
       {/* Vignette Shadow Overlay */}
       <div 
