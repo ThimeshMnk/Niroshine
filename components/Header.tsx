@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-
-const basePath = '/Niroshine'; 
 const Header = () => {
   return (
     <header className="bg-white backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm">
@@ -10,7 +8,7 @@ const Header = () => {
           <div className="shrink-0">
              <Link href="/">
               <Image
-                src={`${basePath}/logo.jpeg`}
+                src="/logo.jpeg" 
                 alt="Niroshine Logo"
                 width={63} 
                 height={60} 
