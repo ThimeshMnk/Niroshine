@@ -5,9 +5,16 @@ import { FadeIn } from '../FadeIn';
 const basePath = '/Niroshine';
 
 const servicesList = [
-  "We Provide Qualified & Expert Cleaners",
-  "No Obligation — May Stop at Any Time!",
-  "Neat & Cleaning Top Service",
+  "Residential Cleaning",
+  "Commercial Cleaning",
+  "End-of-Lease / Bond Cleaning",
+  "Deep Cleaning",
+  "Airbnb / Short-Stay Cleaning",
+  "Oven Cleaning & Cooktop Detailing",
+  "Kitchen Deep Cleaning",
+  "Bathroom & Toilet Deep Cleaning",
+  "Window Cleaning (Internal & External)",
+  "Carpet & Upholstery Cleaning"
 ];
 
 const Services = () => {
@@ -25,7 +32,7 @@ const Services = () => {
               <p className="mt-4 text-gray-600">
                 From deep cleaning to regular maintenance, we offer a wide range of services to meet your specific needs. Our team uses eco-friendly products to ensure a safe environment for you and your family.
               </p>
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-6 grid grid-cols-2 md:grid-cols-2 gap-y-3 gap-x-8">
                 {servicesList.map((service, index) => (
                   <li key={index} className="flex items-center text-gray-700">
                     <Check className="h-5 w-5 mr-3 text-white bg-(--niro-accent) rounded-full p-1" />

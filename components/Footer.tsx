@@ -25,10 +25,11 @@ const Footer = () => {
           <div className="md:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src={`${basePath}/logo.jpeg`}
+                src={`${basePath}/logo2.jpeg`}
                 alt="Niroshine Logo"
                 width={150}
                 height={45}
+                
               />
             </Link>
             <p className="text-sm">
@@ -60,11 +61,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 shrink-0 text-(--niro-accent)" />
-                <span>(03) 1234 5678</span>
+                <span>(+61) 426702208</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 shrink-0 text-(--niro-accent)" />
-                <span>contact@niroshine.com.au</span>
+                <span>niroshinecleaningservices@gmail.com</span>
               </li>
             </ul>
           </div>

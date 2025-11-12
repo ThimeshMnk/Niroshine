@@ -22,9 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth!">
       <body className={poppins.className}>
-         <ManualScrollRestoration />
         <Header /> 
-        {children}
+        <main className="pt-8">
+          {children}
+        </main>
          <Footer />
       </body>
     </html>
