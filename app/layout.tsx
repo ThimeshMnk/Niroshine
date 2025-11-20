@@ -1,17 +1,25 @@
-import type { Metadata } from "next";
+// app/layout.tsx
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header"; 
 import Footer from "@/components/Footer";
-import ManualScrollRestoration from "@/components/ScrollToTop";
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
-  title: "Niroshine - Professional Cleaning Services in Tasmania",
-  description: "Affordable and professional house cleaning services in Tasmania.",
+  title: "Niroshine - Professional Cleaning Services",
+  description: "Affordable cleaning services in Tasmania.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -20,13 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth!">
-      <body className={poppins.className}>
+    <html lang="en">
+      <body className={`${poppins.className} bg-white antialiased overflow-x-hidden`}>
         <Header /> 
-        <main className="pt-8">
+        <main className="w-full overflow-hidden">
           {children}
         </main>
-         <Footer />
+        
+        <Footer />
       </body>
     </html>
   );

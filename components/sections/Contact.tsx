@@ -1,126 +1,136 @@
-"use client";
+"use client"; 
 
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import { FadeIn } from '../FadeIn';
+import { FadeIn } from '@/components/FadeIn'; // Ensure path is correct
 
 const Contact = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [result, setResult] = useState("");
 
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [feedbackMessage, setFeedbackMessage] = useState('');
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending....");
+    
+    // 1. CRITICAL FIX: Save the form reference BEFORE the await
+    // 'event.currentTarget' is lost after the async operation finishes
+    const form = event.currentTarget;
+    
+    const formData = new FormData(form);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); 
-    setStatus('loading');
+    // Your actual access key
+    formData.append("access_key", "46952a24-8fbc-4360-bfc0-b9cf67aa4c0d");
 
     try {
-         const response = await fetch('/Niroshine/api/contact/', { 
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
       });
 
       const data = await response.json();
 
-      if (response.ok) {
-        setStatus('success');
-        setFeedbackMessage(data.message || 'Your message has been sent successfully!');
-        // Clear the form
-        setName('');
-        setEmail('');
-        setMessage('');
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        // 2. Use the saved 'form' variable to reset
+        form.reset();
       } else {
-        setStatus('error');
-        setFeedbackMessage(data.message || 'An unexpected error occurred.');
+        console.log("Error", data);
+        setResult(data.message);
       }
     } catch (error) {
-      setStatus('error');
-      setFeedbackMessage('An error occurred while sending your message. Please try again.');
+      console.error("Form Error:", error); // This logs the actual error to console
+      setResult("Something went wrong. Please try again.");
     }
   };
 
   return (
-    <section id="contact" className="py-20 bg-niro-light-blue">
+    // 1. FIXED: Removed 'px-16'. Used py-12 px-4 for mobile, ramping up on larger screens.
+    <section id="contact" className="py-12 md:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn direction="down" className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-800">Get In Touch</h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Ready for a sparkling clean home? Contact us today for a free, no-obligation quote!
+        
+        <FadeIn direction="down" className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Get In Touch</h2>
+          <p className="mt-4 text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+            Ready for a sparkling clean home? Contact us today!
           </p>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Contact Information */}
-          <FadeIn direction="right">
-            {/* ... your contact details JSX remains unchanged ... */}
-            <div className="space-y-6">
+        {/* Grid: Stacks on mobile, 2 columns on tablet/desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
+          
+          {/* Contact Info Side */}
+           <FadeIn direction="right">
+            <div className="space-y-8">
               <h3 className="text-2xl font-semibold text-gray-800">Contact Details</h3>
+              
               <div className="flex items-start space-x-4">
-                <MapPin className="h-6 w-6 text-[#005acd] mt-1" />
+                {/* shrink-0 ensures icon stays full size even if text wraps */}
+                <MapPin className="h-6 w-6 text-niro-accent mt-1 shrink-0" />
                 <div>
-                  <h4 className="font-semibold">Our Location</h4>
+                  <h4 className="font-semibold text-gray-900">Our Location</h4>
                   <p className="text-gray-600">Servicing all of Tasmania, Australia</p>
                 </div>
               </div>
+
               <div className="flex items-start space-x-4">
-                <Phone className="h-6 w-6 text-[#005acd] mt-1" />
+                <Phone className="h-6 w-6 text-niro-accent mt-1 shrink-0" />
                 <div>
-                  <h4 className="font-semibold">Phone Number</h4>
-                  <p className="text-gray-600">(+61) 426702208</p>
+                  <h4 className="font-semibold text-gray-900">Phone Number</h4>
+                  <p className="text-gray-600">(+61) 426 702 208</p>
                 </div>
               </div>
+
               <div className="flex items-start space-x-4">
-                <Mail className="h-6 w-6 text-[#005acd] mt-1" />
+                <Mail className="h-6 w-6 text-niro-accent mt-1 shrink-0" />
                 <div>
-                  <h4 className="font-semibold">Email Address</h4>
-                  <p className="text-gray-600">niroshinecleaningservices@gmail.com</p>
+                  <h4 className="font-semibold text-gray-900">Email Address</h4>
+                  {/* 2. FIXED: 'break-all' prevents long email from breaking mobile layout */}
+                  <p className="text-gray-600 break-all">
+                    niroshinecleaningservices@gmail.com
+                  </p>
                 </div>
               </div>
             </div>
           </FadeIn>
 
-          {/* Contact Form */}
+          {/* Form Side */}
           <FadeIn direction="left">
-            <div className="bg-gray-50 p-8 rounded-lg border border-gray-200">
-              <form onSubmit={handleSubmit}>
+            <div className="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-200 shadow-sm">
+              <form onSubmit={onSubmit}>
                 <div className="space-y-4">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#005acd] focus:border-[#005acd]"
-                    required
+                  {/* 3. FIXED: Increased padding (py-3) for better touch targets */}
+                  <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Your Name" 
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-niro-accent focus:border-transparent outline-none transition-all" 
+                    required 
                   />
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#005acd] focus:border-[#005acd]"
-                    required
+                  <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Your Email" 
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-niro-accent focus:border-transparent outline-none transition-all" 
+                    required 
                   />
-                  <textarea
-                    placeholder="Your Message (e.g., house size, services needed)"
-                    rows={4}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#005acd] focus:border-[#005acd]"
+                  <textarea 
+                    name="message" 
+                    placeholder="Your Message" 
+                    rows={4} 
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-niro-accent focus:border-transparent outline-none transition-all resize-none" 
                     required
                   ></textarea>
                 </div>
-                <button
-                  type="submit"
-                  disabled={status === 'loading'}
-                  className="mt-6 w-full bg-[#005acd] text-white font-semibold py-3 px-6 rounded-md hover:bg-blue-700 transition duration-300 disabled:bg-gray-400"
+                
+                <button 
+                  type="submit" 
+                  className="mt-6 w-full bg-(--niro-accent) text-white font-semibold py-3.5 px-6 rounded-md hover:bg-opacity-90 hover:shadow-lg transition-all duration-300"
                 >
-                  {status === 'loading' ? 'Sending...' : 'Send Message'}
+                  Send Message
                 </button>
-                {status === 'success' && <p className="mt-4 text-green-600">{feedbackMessage}</p>}
-                {status === 'error' && <p className="mt-4 text-red-600">{feedbackMessage}</p>}
+                
+                <span className="block mt-4 text-center text-sm text-gray-600 min-h-5">
+                  {result}
+                </span>
               </form>
             </div>
           </FadeIn>

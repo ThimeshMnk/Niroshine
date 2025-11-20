@@ -1,5 +1,5 @@
 import Accordion from './Accordion';
-import { FadeIn } from '../FadeIn';
+import { FadeIn } from '@/components/FadeIn'; // Ensure path is correct
 
 const faqItems = [
   {
@@ -18,38 +18,53 @@ const faqItems = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-24 bg-white">
+    // 1. Changed p-16 to py-12 px-4 for mobile sizing
+    <section id="faq" className="py-12 md:py-20 lg:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        
+        {/* Grid stacks to 1 column on mobile, 2 columns on large screens */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: Text & CTA */}
           <FadeIn direction="right">
-            <div>
-              <p className="font-semibold text-niro-accent">FAQ</p>
-              <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-800">
+            {/* Centered text on mobile, Left aligned on Desktop */}
+            <div className="text-center lg:text-left mb-8 lg:mb-0">
+              <p className="font-semibold text-niro-accent uppercase tracking-wider text-sm md:text-base">
+                FAQ
+              </p>
+              <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
                 Do You Have A Question?
               </h2>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Find answers to common questions below. If you can't find what you're looking for, feel free to reach out to us directly. We're here to help!
               </p>
-              <a
-                href="#contact"
-                className="mt-8 inline-block bg-niro-accent text-white font-semibold px-6 py-3 rounded-md hover:bg-opacity-90 transition duration-300"
-              >
-                Make An Appointment
-              </a>
+              
+              <div className="mt-8">
+                <a
+                  href="#contact"
+                  // Button is full width on mobile (w-full), auto width on desktop (md:w-auto)
+                  className="inline-block w-full md:w-auto bg-(--niro-accent) text-white font-semibold px-8 py-3.5 rounded-md hover:bg-opacity-90 transition duration-300 shadow-md"
+                >
+                  Make An Appointment
+                </a>
+              </div>
             </div>
           </FadeIn>
+
+          {/* Right Column: Accordion List */}
           <FadeIn direction="left">
-            <div className="space-y-2">
+            <div className="w-full space-y-4">
               {faqItems.map((item, index) => (
                 <Accordion
                   key={index}
                   question={item.question}
                   answer={item.answer}
-                  isOpen={index === 0} // Make the first item open by default
+                  isOpen={index === 0} // Keep first item open by default
                 />
               ))}
             </div>
           </FadeIn>
+          
         </div>
       </div>
     </section>

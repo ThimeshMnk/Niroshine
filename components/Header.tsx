@@ -51,7 +51,7 @@ const Header = () => {
           <div className="shrink-0">
             <Link href="/">
               <Image
-                src={`${basePath}/logo2.jpeg`}
+                src={`/logo2.jpeg`}
                 alt="Niroshine Logo"
                 width={63}
                 height={60}

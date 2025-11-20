@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'export',
 
-  basePath: '/Niroshine', 
+  // basePath: '/Niroshine', 
   
   trailingSlash: true, 
 

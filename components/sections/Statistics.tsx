@@ -29,7 +29,7 @@ const Statistics = () => {
   const isInView = useInView(ref, { once: true, margin: "-300px 0px" });
 
   return (
-    <section id="statistics" className="py-20 bg-[#005acd]" ref={ref}>
+    <section id="statistics" className="p-16 bg-[#005acd]" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-3 text-center text-white">
           {stats.map((stat, index) => (
