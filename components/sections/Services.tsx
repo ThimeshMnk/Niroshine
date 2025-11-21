@@ -65,7 +65,7 @@ const Services = () => {
           <FadeIn direction="left">
             <div className="relative h-[300px] md:h-[450px] rounded-xl shadow-xl overflow-hidden group">
                <Image
-                src={"/kitchen-bg.jpg"}
+                src={"/service-3.jpg"}
                 alt="A sparkling clean modern kitchen"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
