@@ -18,7 +18,7 @@ const servicesList = [
 const galleryImages = [
   { src: "/service-1.jpg", alt: "Cleaning a window", delay: 0.2 },
   { src: "/service-2.jpg", alt: "Cleaning a sink", delay: 0.4 },
-  { src: "/service-3.jpg", alt: "Organizing cleaning supplies", delay: 0.6 },
+  { src: "/service-4.jpg", alt: "cleaning a kitchen", delay: 0.6 },
 ];
 
 const Services = () => {
@@ -66,7 +66,7 @@ const Services = () => {
             <div className="relative h-[300px] md:h-[450px] rounded-xl shadow-xl overflow-hidden group">
                <Image
                 src={"/service-3.jpg"}
-                alt="A sparkling clean modern kitchen"
+                alt="Organizing cleaning kits and stuffs"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
