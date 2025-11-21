@@ -4,7 +4,6 @@ import Contact from "@/components/sections/Contact";
 import FAQ from "@/components/sections/FAQ";
 import Process from "@/components/sections/Process";
 import Services from "@/components/sections/Services";
-import Statistics from "@/components/sections/Statistics";
 import Testimonials from "@/components/sections/Testimonials";
 
 
