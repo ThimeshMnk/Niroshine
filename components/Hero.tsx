@@ -14,7 +14,6 @@ const Hero = () => {
           // Mobile: object-bottom (focuses on the bucket/lower part)
           // Desktop: object-center (standard centering)
           className="object-cover object-bottom lg:object-center"
-          quality={100} 
           priority 
         />
         
