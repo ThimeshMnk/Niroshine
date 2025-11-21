@@ -11,13 +11,10 @@ const Contact = () => {
     event.preventDefault();
     setResult("Sending....");
     
-    // 1. CRITICAL FIX: Save the form reference BEFORE the await
-    // 'event.currentTarget' is lost after the async operation finishes
     const form = event.currentTarget;
     
     const formData = new FormData(form);
 
-    // Your actual access key
     formData.append("access_key", "46952a24-8fbc-4360-bfc0-b9cf67aa4c0d");
 
     try {
@@ -30,21 +27,19 @@ const Contact = () => {
 
       if (data.success) {
         setResult("Form Submitted Successfully");
-        // 2. Use the saved 'form' variable to reset
         form.reset();
       } else {
         console.log("Error", data);
         setResult(data.message);
       }
     } catch (error) {
-      console.error("Form Error:", error); // This logs the actual error to console
+      console.error("Form Error:", error); 
       setResult("Something went wrong. Please try again.");
     }
   };
 
   return (
-    // 1. FIXED: Removed 'px-16'. Used py-12 px-4 for mobile, ramping up on larger screens.
-    <section id="contact" className="py-12 md:py-24 bg-white">
+    <section id="contact" className="py-12 md:py-24 bg-[#F5FBFF]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
         <FadeIn direction="down" className="text-center mb-12 md:mb-16">
@@ -54,16 +49,13 @@ const Contact = () => {
           </p>
         </FadeIn>
 
-        {/* Grid: Stacks on mobile, 2 columns on tablet/desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
           
-          {/* Contact Info Side */}
            <FadeIn direction="right">
             <div className="space-y-8">
               <h3 className="text-2xl font-semibold text-gray-800">Contact Details</h3>
               
               <div className="flex items-start space-x-4">
-                {/* shrink-0 ensures icon stays full size even if text wraps */}
                 <MapPin className="h-6 w-6 text-niro-accent mt-1 shrink-0" />
                 <div>
                   <h4 className="font-semibold text-gray-900">Our Location</h4>
@@ -83,7 +75,6 @@ const Contact = () => {
                 <Mail className="h-6 w-6 text-niro-accent mt-1 shrink-0" />
                 <div>
                   <h4 className="font-semibold text-gray-900">Email Address</h4>
-                  {/* 2. FIXED: 'break-all' prevents long email from breaking mobile layout */}
                   <p className="text-gray-600 break-all">
                     niroshinecleaningservices@gmail.com
                   </p>
@@ -97,7 +88,6 @@ const Contact = () => {
             <div className="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-200 shadow-sm">
               <form onSubmit={onSubmit}>
                 <div className="space-y-4">
-                  {/* 3. FIXED: Increased padding (py-3) for better touch targets */}
                   <input 
                     type="text" 
                     name="name" 

@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
 
   // basePath: '/Niroshine', 
   
-  trailingSlash: true, 
 
   images: {
     unoptimized: true,

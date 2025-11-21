@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} bg-white antialiased overflow-x-hidden`}>
+      <body className="bg-white antialiased overflow-x-hidden">
         <Header /> 
         <main className="w-full overflow-hidden">
           {children}
