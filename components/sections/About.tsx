@@ -4,28 +4,25 @@ import Image from 'next/image';
 import CountUp from 'react-countup';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FadeIn } from '@/components/FadeIn'; // Ensure path is correct
+import { FadeIn } from '@/components/FadeIn'; 
 
 const About = () => {
   const statRef = useRef(null);
   const isInView = useInView(statRef, { once: true, margin: "-100px" });
 
   return (
-    // 1. Changed p-16 to py-16 to reduce side padding on mobile
-    // 2. Added overflow-hidden to stop the floating bubble from causing scroll issues
+ 
     <section id="about" className="py-12 md:py-20 lg:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-16">
         
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Text Content */}
           <FadeIn direction="right">
             <div className="space-y-6 text-center lg:text-left">
               <p className="font-semibold text-niro-accent tracking-wider uppercase">
                 Who We Are
               </p>
 
-              {/* Replaced invalid 'w-xl' with max-w classes */}
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight max-w-2xl mx-auto lg:mx-0">
                 Our Achievements Over The Years As A Cleaning Service Company
               </h2>
@@ -45,11 +42,9 @@ const About = () => {
             </div>
           </FadeIn>
 
-          {/* Right Column: Image Collage */}
-          {/* Added specific heights for mobile vs desktop */}
+       
           <div className="relative mt-8 lg:mt-0 h-[400px] sm:h-[450px] lg:h-[550px] w-full max-w-lg mx-auto lg:max-w-none">
             
-            {/* Main Image (Top Right) */}
             <FadeIn className="absolute top-0 right-0 h-4/5 w-4/5 rounded-lg z-10">
               <div className="relative w-full h-full rounded-lg shadow-xl overflow-hidden">
                 <Image
@@ -62,7 +57,6 @@ const About = () => {
               </div>
             </FadeIn>
 
-            {/* Secondary Image (Bottom Left) */}
             <FadeIn delay={0.2} className="absolute bottom-0 left-0 h-2/5 w-1/2 rounded-lg z-20">
               <div className="relative w-full h-full rounded-lg shadow-lg border-4 border-white overflow-hidden">
                 <Image
@@ -75,9 +69,7 @@ const About = () => {
               </div>
             </FadeIn>
 
-            {/* Stat Bubble */}
-            {/* FIXED: Removed negative margins on mobile (bottom-4 right-4) to prevent overflow */}
-            {/* Only uses negative margins (-bottom-12) on medium screens and up */}
+       
             <FadeIn delay={0.4} direction="up" className="absolute bottom-4 right-4 md:-bottom-12 md:-right-12 z-30">
               <div
                 ref={statRef}

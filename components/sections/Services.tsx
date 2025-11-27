@@ -75,11 +75,7 @@ const Services = () => {
           </FadeIn>
         </div>
 
-        {/* --- BOTTOM SECTION (Responsive Carousel) --- */}
-        {/* 
-           MOBILE: Flex + Overflow-Auto (Carousel)
-           DESKTOP: Grid (Standard Layout) 
-        */}
+
         <div className="
           flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4
           sm:grid sm:grid-cols-2 sm:gap-6 sm:pb-0 sm:mx-0 sm:px-0

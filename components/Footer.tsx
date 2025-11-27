@@ -14,31 +14,20 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    // 1. Removed 'px-16' from here. It's too wide for mobile.
-    // 2. Added 'pt-16 pb-8' for vertical breathing room.
     <footer className="bg-gray-900 text-gray-300 pt-16 pb-8">
       
-      {/* Container handles horizontal padding (px-4) */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* 
-           GRID SYSTEM:
-           - grid-cols-1: Stack vertically on mobile
-           - sm:grid-cols-2: 2x2 grid on tablets
-           - lg:grid-cols-4: 4 columns in one row on desktop
-        */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           
-          {/* Column 1: Branding & About */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
-              {/* Added explicit dimensions and class for responsive scaling */}
               <div className="relative w-40 h-12">
                 <Image
                   src={`/logo2.jpeg`}
                   alt="Niroshine Logo"
                   fill
-                  className="object-contain object-left" // Keeps logo aligned left
+                  className="object-contain object-left" 
                 />
               </div>
             </Link>
@@ -47,7 +36,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Column 2: Quick Links */}
           <div>
             <h3 className="font-semibold text-white mb-4 uppercase tracking-wider text-sm">Quick Links</h3>
             <ul className="space-y-2">
@@ -78,7 +66,6 @@ const Footer = () => {
               </li>
               <li className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 mt-0.5 shrink-0 text-niro-accent" />
-                {/* break-words is CRITICAL here because the email is long and will overflow on small phones */}
                 <span className="wrap-break-word break-all">
                   niroshinecleaningservices@gmail.com
                 </span>
@@ -86,7 +73,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 4: Social Media */}
           <div>
              <h3 className="font-semibold text-white mb-4 uppercase tracking-wider text-sm">Follow Us</h3>
              <p className="text-sm text-gray-400 mb-4">
@@ -118,7 +104,6 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
           <p>&copy; {currentYear} Niroshine. All Rights Reserved.</p>
         </div>

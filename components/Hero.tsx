@@ -11,13 +11,11 @@ const Hero = () => {
           src={`/hero3.png`}
           alt="Background image of a clean home"
           fill
-          // Mobile: object-bottom (focuses on the bucket/lower part)
-          // Desktop: object-center (standard centering)
+      
           className="object-cover object-bottom lg:object-center"
           priority 
         />
         
-        {/* Desktop Only: Vignette Overlay */}
         <div
           className="hidden lg:block absolute inset-0 z-10"
           style={{
@@ -26,11 +24,7 @@ const Hero = () => {
         ></div>
       </div>
 
-      {/* 
-        TEXT CONTENT
-        - Mobile: bg-blue-900 (Solid color), order-1 (sits on top), py-12
-        - Desktop: transparent bg, absolute positioning, centered
-      */}
+
       <div className="
         relative z-20 order-2 
         w-full flex flex-col justify-center 
