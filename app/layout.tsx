@@ -22,7 +22,12 @@ export const metadata: Metadata = {
   },
   description:
     "Trusted residential and commercial cleaning in Tasmania. We offer bond cleaning, deep cleaning, end-of-lease services, and more. Get a free quote today!",
-  keywords: [
+  
+   verification: {
+    google: "cA318KRh5njP1nYmLb29cLfLQu86ruADd7GDoqm4eGU", 
+  },
+  
+    keywords: [
     "Cleaning Services Tasmania",
     "House Cleaning Hobart",
     "Bond Cleaning Tasmania",
@@ -30,6 +35,7 @@ export const metadata: Metadata = {
     "Commercial Cleaning",
     "Deep Cleaning Services",
     "Niroshine",
+    "Australia"
   ],
   authors: [{ name: "Niroshine Cleaning Services" }],
   creator: "Niroshine",
