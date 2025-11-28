@@ -24,7 +24,7 @@ const About = () => {
               </p>
 
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight max-w-2xl mx-auto lg:mx-0">
-                Our Achievements Over The Years As A Cleaning Service Company
+                Our Achievements Over The Years As A Cleaning Company
               </h2>
 
               <p className="text-gray-600 leading-relaxed text-base md:text-lg max-w-xl mx-auto lg:mx-0">

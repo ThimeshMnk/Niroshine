@@ -45,7 +45,7 @@ const Hero = () => {
 
           <FadeIn direction="down" delay={0.2}>
             <p className="text-base md:text-xl text-blue-100 lg:text-white/90 max-w-2xl mb-8 leading-relaxed drop-shadow-md mx-auto lg:mx-0">
-              Professional, reliable, and affordable house cleaning services. We transform your home into a spotless
+              Professional, reliable, and affordable house cleaning. We transform your home into a spotless
               sanctuary you'll love.
             </p>
           </FadeIn>

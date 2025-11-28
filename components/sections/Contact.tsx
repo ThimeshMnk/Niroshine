@@ -76,7 +76,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-gray-900">Email Address</h4>
                   <p className="text-gray-600 break-all">
-                    niroshinecleaningservices@gmail.com
+                    contact@niroshinecleaning.com.au
                   </p>
                 </div>
               </div>

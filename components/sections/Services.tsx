@@ -34,10 +34,10 @@ const Services = () => {
                 Our Services
               </p>
               <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
-                We Give The Best Services
+                We Give The Best Solutions
               </h2>
               <p className="mt-4 text-gray-600 text-base md:text-lg leading-relaxed">
-                From deep cleaning to regular maintenance, we offer a wide range of services to meet your specific needs. Our team uses eco-friendly products to ensure a safe environment for you and your family.
+                From deep cleaning to regular maintenance, we offer a wide range of Solutions to meet your specific needs. Our team uses eco-friendly products to ensure a safe environment for you and your family.
               </p>
 
               <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-left">

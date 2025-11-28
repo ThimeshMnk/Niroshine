@@ -67,7 +67,7 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 mt-0.5 shrink-0 text-niro-accent" />
                 <span className="wrap-break-word break-all">
-                  niroshinecleaningservices@gmail.com
+                  contact@niroshinecleaning.com.au
                 </span>
               </li>
             </ul>
